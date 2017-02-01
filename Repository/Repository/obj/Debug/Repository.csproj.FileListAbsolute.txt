@@ -1,0 +1,6 @@
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\Repository\Repository\bin\Debug\Repository.exe.config
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\Repository\Repository\bin\Debug\Repository.exe
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\Repository\Repository\bin\Debug\Repository.pdb
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\Repository\Repository\obj\Debug\Repository.csprojResolveAssemblyReference.cache
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\Repository\Repository\obj\Debug\Repository.exe
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\Repository\Repository\obj\Debug\Repository.pdb

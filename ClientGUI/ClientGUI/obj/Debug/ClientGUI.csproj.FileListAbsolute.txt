@@ -1,0 +1,14 @@
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\ClientGUI\ClientGUI\bin\Debug\ClientGUI.exe.config
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\ClientGUI\ClientGUI\bin\Debug\ClientGUI.exe
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\ClientGUI\ClientGUI\bin\Debug\ClientGUI.pdb
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\ClientGUI\ClientGUI\obj\Debug\ClientGUI.csprojResolveAssemblyReference.cache
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\ClientGUI\ClientGUI\obj\Debug\MainWindow.g.cs
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\ClientGUI\ClientGUI\obj\Debug\App.g.cs
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\ClientGUI\ClientGUI\obj\Debug\ClientGUI_MarkupCompile.cache
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\ClientGUI\ClientGUI\obj\Debug\ClientGUI_MarkupCompile.lref
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\ClientGUI\ClientGUI\obj\Debug\MainWindow.baml
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\ClientGUI\ClientGUI\obj\Debug\ClientGUI.g.resources
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\ClientGUI\ClientGUI\obj\Debug\ClientGUI.Properties.Resources.resources
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\ClientGUI\ClientGUI\obj\Debug\ClientGUI.csproj.GenerateResource.Cache
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\ClientGUI\ClientGUI\obj\Debug\ClientGUI.exe
+C:\Users\cgarr\OneDrive\Documents\SMA\Project#4 WEIJUN CAI\ClientGUI\ClientGUI\obj\Debug\ClientGUI.pdb

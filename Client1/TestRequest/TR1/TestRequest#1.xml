@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestRequest>
+  <RequestName>TestRequest#1</RequestName>
+  <Author>WEIJUN CAI</Author>
+  <Test Name="First Test">
+    <TestDriver>TestDriver1.dll</TestDriver>
+    <Library>CodeToTest1.dll</Library>
+  </Test>
+  <Test Name="Second Test">
+    <TestDriver>TestDriver2.dll</TestDriver>
+    <Library>CodeToTest2.dll</Library> 
+    <Library>CodeToTest8.dll</Library>
+  </Test>
+</TestRequest>

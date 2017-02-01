@@ -1,0 +1,151 @@
+﻿/////////////////////////////////////////////////////////////////////////////
+//  MessageServer.cs - WCF message sending service as a reciever           //
+//  Language:     C#, VS 2015                                              //
+//  Platform:     SurfaceBook, Windows 10 Pro                              //
+//  Application:  Project4 for CSE681 - Software Modeling & Analysis       //
+//  Author:       Jim Fawcett, CST 2-187, Syracuse University              //
+//                Weijun Cai                                               //
+/////////////////////////////////////////////////////////////////////////////
+/*
+ *   Module Operations
+ *   -----------------
+ *   This module implements ICommService, providing methods to create host for message service 
+ *   sending/recieving messages and parsing load message from repository.
+ */
+/*
+ *   Build Process
+ *   -------------
+ *   - Required files:   IMessageService.cs, BlockingQueue.cs
+ *   
+ * 
+ *   Maintenance History
+ *   -------------------
+ *   ver 1.0 : 05 Nov 2016
+ */
+
+using SWTools;
+using System;
+using System.ServiceModel;
+using System.Threading;
+using System.Xml.Linq;
+
+namespace MessageService
+{
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+
+    public class MessageServer : ICommService
+    {
+        
+        // We want the queue to be shared by all clients and the server,
+        // so make it static.
+
+        static BlockingQueue<Message> BlockingQ = null;
+        ServiceHost host = null;
+
+       public bool IsHostStart()
+        {
+            return host != null;
+        }
+
+        public MessageServer() //set window size and create a queue when initializing a CommService 
+        {
+            // Only one service, the first, should create the queue
+
+            if (BlockingQ == null)
+                BlockingQ = new BlockingQueue<Message>();
+        }
+
+        public Message TryGetTHMessage()
+        {
+            Message msg = new Message();
+            while (true)
+            {
+                msg = GetMessage();
+                if (msg.sender != "TestHarness")
+                {
+                    PostMessage(msg);
+                    Thread.Sleep(10);
+                    continue;
+                }
+                else
+                    break;
+            }
+            return msg;
+        }
+
+        public Message TryGetRepoMessage(string recipient)
+        {
+            Message msg = new Message();
+            while (true)
+            {
+                msg = GetMessage();
+                if (msg.sender != "Repository" || msg.recipient != recipient)
+                {
+                    PostMessage(msg);
+                    Thread.Sleep(10);
+                    continue;
+                }
+                else
+                    break;
+            }
+            return msg;
+        }
+
+        public void PostMessage(Message msg)
+        {
+            //IdentifyClient();
+            BlockingQ.enQ(msg);
+            
+        }
+
+        // Since this is not a service operation only server can call
+
+        public Message GetMessage()
+        {
+            return BlockingQ.deQ();
+        }
+
+        public TestLoadStatus ParseLoadMsg(Message msg)
+        {
+            XElement reply = XElement.Parse(msg.fileMessage.xmlLoadReply);
+            TestLoadStatus tls = new TestLoadStatus();
+            tls.status = reply.Element("Status").Value == "true" ? true : false;
+            tls.loadMessage = reply.Element("LoadMessage").Value;
+            return tls;
+        }
+
+        public TestResults ParseResultMsg(Message msg)
+        {
+            XElement results = XElement.Parse(msg.testMessage.xmlResult);
+            TestResults tr = new TestResults();
+            tr.LogName = results.Element("LogName").Value;
+            tr.log = results.Element("Log").Value;
+            return tr;
+        }
+
+        public void CreateMessageServiceHost(string url)
+        {
+            // Can't configure SecurityMode other than none with streaming.
+            // This is the default for BasicHttpBinding.
+            //   BasicHttpSecurityMode securityMode = BasicHttpSecurityMode.None;
+            //   BasicHttpBinding binding = new BasicHttpBinding(securityMode);
+
+            WSDualHttpBinding binding1 = new WSDualHttpBinding();
+            Uri baseAddress = new Uri(url);
+            Type service = typeof(MessageServer);
+            host = new ServiceHost(service, baseAddress);
+            host.AddServiceEndpoint(typeof(ICommService), binding1, baseAddress);
+
+        }
+
+        public void open()
+        {
+            host.Open();
+        }
+
+        public void close()
+        {
+            host.Close();
+        }
+    }
+}

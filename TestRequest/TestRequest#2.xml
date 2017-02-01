@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<testRequest>
+  <author>WEIJUN CAI</author>
+  <test name="Third Test">
+    <testDriver>TestDriver3.dll</testDriver>
+    <library>CodeToTest1.dll</library>
+  </test>
+  <test name="Fourth Test">
+    <testDriver>TestDriver2.dll</testDriver>
+    <library>CodeToTest4.dll</library>
+  </test>
+</testRequest>
